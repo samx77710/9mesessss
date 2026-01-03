@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9 meses</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+
+    <div class="container">
+        <h1>💝💝 felices 9 meses mi reina te amoooooooo</h1>
+        <p class="subtitle">Esto es mi muestra de amor hacia ti mi reina te amo, a por mucho mas juntos</p>
+
+        <div class="photo-frame">
+            <img src="assets/download (1).jpg" alt="Mi reina" class="photo">
+        </div>
+
+        <div class="counter">
+            <div>9 meses de pura felicidad a tu lado mi amor</div>
+            <div style="font-size: 16px; margin-top: 10px;">273 dias a tu lado bebe</div>
+        </div>
+
+        <div class="message">
+            Han sido 9 meses increibles a tu lado mi amor, cada dia contigo es una aventura nueva llena de amor y momentos especiales que guardo en lo mas profundo de mi corazon, gracias por llegar a mi vida y hacer cada dia de mi vida mas especial Te amo mas de lo que las palabras pueden expresar, vamos a por muchos años juntos mi reina TEAMOOOOOOOOOOOOOOO
+        </div>
+
+
+    <div class="gallery">
+            <h2 class="gallery-title">Fotos de mi mujer hermosa</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="assets/bella2.jpg" alt="Momento 2" onerror="this.style.display='none'; this.nextElementSibling.innerHTML='foto'">
+                    <p class="gallery-caption">PRECIOSA 😋😋😊😊</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/bella4.jpg" alt="Momento 4" onerror="this.style.display='none'; this.nextElementSibling.innerHTML='foto'">
+                    <p class="gallery-caption">QUE HERMOSA 😍</p>
+                </div>
+            </div>
+        </div>
+        
+        <button class="music-control" onclick="toggleMusic()">reproduce esta canción bebe</button>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="assets/MILO J - M.A.I (En Vivo Estadio de Morón) - MILO J.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const audio = document.getElementById('backgroundMusic');
+        let musicPlaying = false;
+
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts');
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                heartsContainer.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 7000);
+            }, 800);
+        }
+
+        function toggleMusic() {
+            const button = document.querySelector('.music-control');
+            
+            if (!musicPlaying) {
+                audio.play();
+                button.innerHTML = 'Pausar Música';
+                musicPlaying = true;
+            } else {
+                audio.pause();
+                button.innerHTML = 'Reproducir Música';
+                musicPlaying = false;
+            }
+        }
+
+        createHearts();
+    </script>
+</body>
+</html>
